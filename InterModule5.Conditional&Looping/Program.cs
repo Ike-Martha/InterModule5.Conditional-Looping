@@ -14,92 +14,92 @@ namespace ConditionalsAndLooping
         static void Main(string[] args)
         {
             //TestIf
-            string fileName = @"C:\Windows\win.ini";
-            if (File.Exists(fileName))
-            {
-                Console.WriteLine(fileName);
-                Console.WriteLine("==================");
-                Console.WriteLine(File.ReadAllText(fileName));
+            //  string fileName = @"C:\Windows\win.ini";
+            //  if (File.Exists(fileName))
+            //  {
+            //      Console.WriteLine(fileName);
+            //      Console.WriteLine("==================");
+            //      Console.WriteLine(File.ReadAllText(fileName));
 
-                }
+            //      }
 
-            ////TestIf
-            //     string fileName = @"C:\Windows\win.ini";
-            //if (File.Exists(fileName))
-            //    Console.WriteLine(File.ReadAllText(fileName));
+            //  ////TestIf
+            //  //     string fileName = @"C:\Windows\win.ini";
+            //  //if (File.Exists(fileName))
+            //  //    Console.WriteLine(File.ReadAllText(fileName));
 
-            //TestIfElse
-            Console.WriteLine(" Enter a nmber: ");
-            string value = Console.ReadLine();
-            int number = 0;
-            if (int.TryParse(value, out number))
-            {
-                Console.WriteLine("You enterd a valid number");
+            //  //TestIfElse
+            //  Console.WriteLine(" Enter a nmber: ");
+            //  string value = Console.ReadLine();
+            //  int number = 0;
+            //  if (int.TryParse(value, out number))
+            //  {
+            //      Console.WriteLine("You enterd a valid number");
 
-            }
-            else
-            {
-                Console.WriteLine("inalid input");
-            }
+            //  }
+            //  else
+            //  {
+            //      Console.WriteLine("inalid input");
+            //  }
 
-            //TestNestedIf
-            Console.WriteLine("Enter a number");
-            string Value = Console.ReadLine();
-            int number1 = 0;
-            if (int.TryParse(Value, out number1))
-            {
-                if (number1 == 0)
-                {
-                    Console.WriteLine("Enter a number other than 0");
-                }
-                else
-                {
-                    Console.WriteLine("You entered a vaild number");
-                }
+            //  //TestNestedIf
+            //  Console.WriteLine("Enter a number");
+            //  string Value = Console.ReadLine();
+            //  int number1 = 0;
+            //  if (int.TryParse(Value, out number1))
+            //  {
+            //      if (number1 == 0)
+            //      {
+            //          Console.WriteLine("Enter a number other than 0");
+            //      }
+            //      else
+            //      {
+            //          Console.WriteLine("You entered a vaild number");
+            //      }
 
-            }
-            else
-            {
-                Console.WriteLine("Invalid input");
-            }
-
-
-
-            //multiple Condition
-            Console.WriteLine("Enter a drive letter");
-            string drive = Console.ReadLine();
-
-            if (!string.IsNullOrEmpty(drive))
-            {
-                DriveInfo info = new DriveInfo(drive);
-                if (!info.IsReady)
-                    Console.WriteLine("The drive isn't ready. perhaps it is not formatted");
-                else if (info.DriveType != DriveType.Fixed)
-                    Console.WriteLine("Please specify a hard drive:");
-                else if (info.TotalFreeSpace < 1000000)
-                    Console.WriteLine("not enough free space");
-                else Console.WriteLine("{0} is acceptable.", drive);
+            //  }
+            //  else
+            //  {
+            //      Console.WriteLine("Invalid input");
+            //  }
 
 
-            }
 
-            //conditional Operator
-            Random random = new Random();
-            int count = random.Next(1, 100);
-            int saveCount;
+            //  //multiple Condition
+            //  Console.WriteLine("Enter a drive letter");
+            //  string drive = Console.ReadLine();
 
-            //common if else pattern
-            if (count == 47)
-            {
-                saveCount = 0;
-            }
-            else
-            {
-                saveCount = count;
-            }
-            //using the conditional operator to write the above code
-          //  it consist of question and a colon
-             saveCount = count == 47 ? 0 : count;
+            //  if (!string.IsNullOrEmpty(drive))
+            //  {
+            //      DriveInfo info = new DriveInfo(drive);
+            //      if (!info.IsReady)
+            //          Console.WriteLine("The drive isn't ready. perhaps it is not formatted");
+            //      else if (info.DriveType != DriveType.Fixed)
+            //          Console.WriteLine("Please specify a hard drive:");
+            //      else if (info.TotalFreeSpace < 1000000)
+            //          Console.WriteLine("not enough free space");
+            //      else Console.WriteLine("{0} is acceptable.", drive);
+
+
+            //  }
+
+            //  //conditional Operator
+            //  Random random = new Random();
+            //  int count = random.Next(1, 100);
+            //  int saveCount;
+
+            //  //common if else pattern
+            //  if (count == 47)
+            //  {
+            //      saveCount = 0;
+            //  }
+            //  else
+            //  {
+            //      saveCount = count;
+            //  }
+            //  //using the conditional operator to write the above code
+            ////  it consist of question and a colon
+            //   saveCount = count == 47 ? 0 : count;
             // syntax
             // condition ? first_expression: second_expression
 
@@ -203,10 +203,10 @@ namespace ConditionalsAndLooping
             //}
 
             //Repeating code block and looping
-           //simple While
+            //simple While
             //while (true)
             //{
-           //    Console.WriteLine("Enter a driver letter (press enter to quit):");
+            //    Console.WriteLine("Enter a driver letter (press enter to quit):");
 
             //    string driveName = Console.ReadLine();
             //    if (string.IsNullOrEmpty(driveName))
@@ -394,6 +394,23 @@ namespace ConditionalsAndLooping
             //    }
             //ExitHere:
             //    Console.WriteLine("You go to {0}", sum);
+
+            //the continue statement
+            System.Random rnd = new System.Random();
+            int count = 0;
+            int value = 0;
+            while (count < 5)
+            {
+                value = rnd.Next(1, 100);
+                if(value % 2 != 0)
+                {
+                    // the value is odd. Try again
+                    continue;
+                }
+                //you found an even number
+                count++;
+                    Console.WriteLine($"Random Number {count}: {value}");
+            }
 
 
 
